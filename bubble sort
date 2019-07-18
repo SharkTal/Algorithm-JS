@@ -1,0 +1,44 @@
+// basic bubble sort 
+// function bubbleSort(arr, lo, hi){
+//     let sorted;
+//     do{
+//         sorted = false;
+//         for(let lo = 1; lo < hi; lo++){
+//             if(arr[lo-1] > arr[lo]){   
+//                 var temp = arr[lo];// swap 
+//                 arr[lo] = arr[lo -1];
+//                 arr[lo - 1] = temp;
+//                 sorted = true;
+//             }
+//         }
+      
+//     }while(sorted);
+//     return arr;
+// }
+
+// upgraded bubble sort version
+function bubbleSort(arr, lo, hi){
+    while(!bubble(arr,lo, hi--)){
+        bubble(lo, hi);
+    }
+    return arr;
+}
+
+function bubble(arr,lo, hi){
+    let sorted = true; // asume two adjacent elements in order
+    while(lo < hi){
+        if(arr[lo -1 ] >  arr[lo]){
+            sorted = false; //marked as not in order, then 
+            let temp = arr[lo];// switch
+            arr[lo] = arr[lo -1];
+            arr[lo - 1] = temp;
+        }
+        lo++;
+    }
+    return sorted;
+}
+
+let nArr = [11,8,9,10,1,5];
+let lo = 1;
+let hi = nArr.length;
+console.log(bubbleSort(nArr, lo, hi));
