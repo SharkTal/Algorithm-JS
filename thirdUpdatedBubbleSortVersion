@@ -1,0 +1,26 @@
+function bubbleSort(arr, lo, hi){
+    while(lo < (hi = bubble(arr, lo, hi))){
+        bubble(arr, lo, hi);
+    }
+    return arr;
+}
+
+function bubble(arr, lo, hi){
+    let last = lo;
+    while(lo < hi){
+        if(arr[lo - 1] > arr[lo]){
+            last = lo; // update the last right side disordered adjacent elements' location,and
+            let temp = arr[lo]; // swap
+            arr[lo] = arr[lo - 1];
+            arr[lo - 1] = temp;
+        }
+        lo++;
+    }
+    return last;
+}
+
+let arr = [12,11,1,4,5,6,7];
+let lo = 1;
+let hi = arr.length;
+
+console.log(bubbleSort(arr, lo, hi));
